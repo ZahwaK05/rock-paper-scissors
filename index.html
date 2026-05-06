@@ -10,74 +10,62 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Nunito', sans-serif; background: #fff0f5; min-height: 100vh; display: flex; justify-content: center; padding: 2rem 1rem; }
     #app { width: 100%; max-width: 560px; }
-
     .screen { display: none; flex-direction: column; align-items: center; gap: 1rem; }
     .screen.active { display: flex; }
-
     .game-title { font-family: 'Fredoka One', cursive; font-size: 36px; color: #D4537E; text-align: center; letter-spacing: 1px; }
     .game-tagline { font-size: 13px; color: #888; text-align: center; margin-top: 4px; }
-
     .cute-card { background: #fff; border: 1.5px solid #F4C0D1; border-radius: 20px; padding: 1.25rem 1.5rem; width: 100%; max-width: 400px; }
     .card-label { font-size: 12px; font-weight: 800; color: #993556; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
-
     .mode-row, .target-pills { display: flex; gap: 8px; flex-wrap: wrap; }
     .pill-btn { font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700; padding: 7px 18px; border-radius: 999px; border: 1.5px solid #F4C0D1; background: #fff; color: #993556; cursor: pointer; transition: all 0.15s; }
     .pill-btn.active { background: #D4537E; border-color: #D4537E; color: #fff; }
     .pill-btn:hover:not(.active) { background: #FBEAF0; }
-
     .t-pill { font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; width: 48px; height: 48px; border-radius: 999px; border: 1.5px solid #F4C0D1; background: #fff; color: #993556; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; }
     .t-pill.active { background: #D4537E; border-color: #D4537E; color: #fff; }
     .t-pill:hover:not(.active) { background: #FBEAF0; }
-
     .custom-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
     .custom-row input { width: 72px; padding: 6px 10px; font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700; border-radius: 12px; border: 1.5px solid #F4C0D1; color: #D4537E; text-align: center; }
     .custom-row input:focus { outline: none; border-color: #D4537E; }
     .custom-row span { font-size: 13px; color: #888; }
-
     .start-btn { font-family: 'Fredoka One', cursive; font-size: 20px; padding: 13px 48px; border-radius: 999px; border: none; background: #D4537E; color: #fff; cursor: pointer; transition: all 0.15s; margin-top: 4px; }
     .start-btn:hover { background: #993556; transform: translateY(-2px); }
-
     .top-bar { display: flex; align-items: center; justify-content: space-between; width: 100%; }
     .back-pill { font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 999px; border: 1.5px solid #F4C0D1; background: transparent; color: #993556; cursor: pointer; }
     .back-pill:hover { background: #FBEAF0; }
     .target-tag { font-size: 12px; font-weight: 700; color: #fff; background: #D4537E; border-radius: 999px; padding: 5px 14px; }
-
     .scoreboard { display: flex; gap: 10px; justify-content: center; width: 100%; }
     .sc { flex: 1; max-width: 140px; border-radius: 18px; padding: 10px 6px 8px; text-align: center; border: 1.5px solid; }
-    .sc.you { background: #E1F5EE; border-color: #9FE1CB; }
-    .sc.cpu { background: #FBEAF0; border-color: #F4C0D1; }
+    .sc.p1 { background: #E1F5EE; border-color: #9FE1CB; }
+    .sc.p2 { background: #FBEAF0; border-color: #F4C0D1; }
     .sc.tie { background: #EEEDFE; border-color: #CECBF6; }
     .sc-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
-    .sc.you .sc-label { color: #0F6E56; }
-    .sc.cpu .sc-label { color: #993556; }
+    .sc.p1 .sc-label { color: #0F6E56; }
+    .sc.p2 .sc-label { color: #993556; }
     .sc.tie .sc-label { color: #534AB7; }
     .sc-num { font-family: 'Fredoka One', cursive; font-size: 34px; line-height: 1; margin: 2px 0; }
-    .sc.you .sc-num { color: #1D9E75; }
-    .sc.cpu .sc-num { color: #D4537E; }
+    .sc.p1 .sc-num { color: #1D9E75; }
+    .sc.p2 .sc-num { color: #D4537E; }
     .sc.tie .sc-num { color: #7F77DD; }
     .sc-bar { height: 5px; border-radius: 999px; margin: 4px 8px 0; overflow: hidden; background: rgba(0,0,0,0.06); }
     .sc-fill { height: 100%; border-radius: 999px; transition: width 0.35s ease; }
-    .sc.you .sc-fill { background: #1D9E75; }
-    .sc.cpu .sc-fill { background: #D4537E; }
+    .sc.p1 .sc-fill { background: #1D9E75; }
+    .sc.p2 .sc-fill { background: #D4537E; }
     .sc.tie .sc-fill { background: #7F77DD; }
-
     .arena { display: flex; align-items: center; justify-content: center; gap: 24px; min-height: 120px; width: 100%; }
     .fighter { display: flex; flex-direction: column; align-items: center; gap: 6px; }
     .fighter-name { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: #999; }
     .icon-bubble { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; line-height: 1; border: 2px solid; }
-    .you-bubble { background: #E1F5EE; border-color: #9FE1CB; }
-    .cpu-bubble { background: #FBEAF0; border-color: #F4C0D1; }
+    .p1-bubble { background: #E1F5EE; border-color: #9FE1CB; }
+    .p2-bubble { background: #FBEAF0; border-color: #F4C0D1; }
     .icon-bubble.bounce { animation: bounce 0.4s ease; }
     @keyframes bounce { 0%,100%{transform:scale(1)} 30%{transform:scale(1.2) rotate(-8deg)} 60%{transform:scale(0.92) rotate(6deg)} }
     .vs-text { font-family: 'Fredoka One', cursive; font-size: 20px; color: #CECBF6; }
-
     .result-area { text-align: center; min-height: 52px; width: 100%; }
     .r-big { font-family: 'Fredoka One', cursive; font-size: 26px; color: #ccc; }
-    .r-big.win { color: #1D9E75; }
-    .r-big.lose { color: #D4537E; }
+    .r-big.win1 { color: #1D9E75; }
+    .r-big.win2 { color: #D4537E; }
     .r-big.tie { color: #7F77DD; }
     .r-sub { font-size: 13px; color: #888; margin-top: 3px; font-style: italic; }
-
     .choices-grid { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; width: 100%; }
     .choice-btn { background: #fff; border: 1.5px solid #F4C0D1; border-radius: 18px; padding: 12px 14px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; transition: all 0.15s; min-width: 76px; }
     .choice-btn:hover { background: #FBEAF0; border-color: #D4537E; transform: translateY(-3px); }
@@ -85,20 +73,32 @@
     .choice-btn:disabled { opacity: 0.35; pointer-events: none; }
     .choice-btn .ce { font-size: 30px; }
     .choice-btn .cl { font-size: 12px; font-weight: 700; color: #993556; }
-
     .rules-row { font-size: 11px; color: #bbb; text-align: center; line-height: 1.7; max-width: 480px; }
-
     .winner-wrap { background: #fff; border: 2px solid #F4C0D1; border-radius: 24px; padding: 2rem 1.5rem; text-align: center; width: 100%; max-width: 400px; }
     .w-emoji { font-size: 60px; margin-bottom: 8px; }
     .w-title { font-family: 'Fredoka One', cursive; font-size: 30px; margin-bottom: 6px; }
-    .w-title.player { color: #1D9E75; }
-    .w-title.cpu { color: #D4537E; }
+    .w-title.p1 { color: #1D9E75; }
+    .w-title.p2 { color: #D4537E; }
     .w-sub { font-size: 14px; color: #888; margin-bottom: 1.25rem; }
     .w-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .w-again { font-family: 'Fredoka One', cursive; font-size: 18px; padding: 10px 28px; border-radius: 999px; border: none; background: #D4537E; color: #fff; cursor: pointer; }
     .w-again:hover { background: #993556; }
     .w-change { font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 999px; border: 1.5px solid #F4C0D1; background: transparent; color: #993556; cursor: pointer; }
     .w-change:hover { background: #FBEAF0; }
+    .pass-screen { background: #fff; border: 2px solid #F4C0D1; border-radius: 24px; padding: 2rem 1.5rem; text-align: center; width: 100%; max-width: 400px; }
+    .pass-title { font-family: 'Fredoka One', cursive; font-size: 24px; color: #D4537E; margin-bottom: 6px; }
+    .pass-sub { font-size: 13px; color: #888; margin-bottom: 1.25rem; }
+    .pass-choices { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 1rem; }
+    .pass-btn { background: #fff; border: 1.5px solid #F4C0D1; border-radius: 18px; padding: 12px 14px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; transition: all 0.15s; min-width: 76px; }
+    .pass-btn:hover { background: #FBEAF0; border-color: #D4537E; transform: translateY(-3px); }
+    .pass-btn .ce { font-size: 30px; }
+    .pass-btn .cl { font-size: 12px; font-weight: 700; color: #993556; }
+    .reveal-btn { font-family: 'Fredoka One', cursive; font-size: 18px; padding: 10px 32px; border-radius: 999px; border: none; background: #7F77DD; color: #fff; cursor: pointer; margin-top: 4px; }
+    .reveal-btn:hover { background: #534AB7; }
+    .turn-badge { font-size: 13px; font-weight: 800; padding: 6px 16px; border-radius: 999px; margin-bottom: 10px; display: inline-block; }
+    .turn-p1 { background: #E1F5EE; color: #0F6E56; }
+    .turn-p2 { background: #FBEAF0; color: #993556; }
+    .hidden-pick { font-size: 40px; margin: 8px 0; letter-spacing: 4px; }
   </style>
 </head>
 <body>
@@ -108,13 +108,20 @@
   <div id="setup" class="screen active">
     <div>
       <div class="game-title">Rock Paper Scissors</div>
-      <div class="game-tagline">Choose your mode and set your target — first to win wins it all!</div>
+      <div class="game-tagline">Choose your mode and set your target!</div>
     </div>
     <div class="cute-card">
       <div class="card-label">Game mode</div>
       <div class="mode-row">
-        <button class="pill-btn active" onclick="selMode('classic')">Classic</button>
-        <button class="pill-btn" onclick="selMode('rpsls')">+ Lizard &amp; Spock</button>
+        <button class="pill-btn active" onclick="selRules('classic')">Classic</button>
+        <button class="pill-btn" onclick="selRules('rpsls')">+ Lizard &amp; Spock</button>
+      </div>
+    </div>
+    <div class="cute-card">
+      <div class="card-label">Playing against</div>
+      <div class="mode-row">
+        <button class="pill-btn active" onclick="selOpponent('cpu')">Computer</button>
+        <button class="pill-btn" onclick="selOpponent('human')">A friend</button>
       </div>
     </div>
     <div class="cute-card">
@@ -123,7 +130,7 @@
         <button class="t-pill active" onclick="selPreset(3, this)">3</button>
         <button class="t-pill" onclick="selPreset(5, this)">5</button>
         <button class="t-pill" onclick="selPreset(10, this)">10</button>
-        <button class="t-pill" id="custom-pill" onclick="selPreset('custom', this)">...</button>
+        <button class="t-pill" onclick="selPreset('custom', this)">...</button>
       </div>
       <div class="custom-row" id="custom-row" style="display:none">
         <input type="number" id="cval" min="1" max="99" value="7" step="1" oninput="updCustom()" />
@@ -152,21 +159,32 @@
       </div>
     </div>
 
-    <div class="scoreboard">
-      <div class="sc you"><div class="sc-label">You</div><div class="sc-num" id="sy">0</div><div class="sc-bar"><div class="sc-fill" id="by" style="width:0%"></div></div></div>
-      <div class="sc tie"><div class="sc-label">Ties</div><div class="sc-num" id="st">0</div><div class="sc-bar"><div class="sc-fill" id="bt" style="width:0%"></div></div></div>
-      <div class="sc cpu"><div class="sc-label">CPU</div><div class="sc-num" id="sc2">0</div><div class="sc-bar"><div class="sc-fill" id="bc" style="width:0%"></div></div></div>
+    <div id="pass-box" style="display:none; justify-content:center; width:100%">
+      <div class="pass-screen">
+        <div class="turn-badge" id="pass-badge">Player 1's turn</div>
+        <div class="pass-title" id="pass-title">Make your pick!</div>
+        <div class="pass-sub" id="pass-sub">Don't show your opponent!</div>
+        <div class="pass-choices" id="pass-choices"></div>
+        <div class="hidden-pick" id="hidden-picks"></div>
+        <button class="reveal-btn" id="reveal-btn" style="display:none" onclick="revealRound()">Reveal!</button>
+      </div>
     </div>
 
-    <div class="arena">
+    <div class="scoreboard">
+      <div class="sc p1"><div class="sc-label" id="lbl-p1">You</div><div class="sc-num" id="sy">0</div><div class="sc-bar"><div class="sc-fill" id="by" style="width:0%"></div></div></div>
+      <div class="sc tie"><div class="sc-label">Ties</div><div class="sc-num" id="st">0</div><div class="sc-bar"><div class="sc-fill" id="bt" style="width:0%"></div></div></div>
+      <div class="sc p2"><div class="sc-label" id="lbl-p2">CPU</div><div class="sc-num" id="sc2">0</div><div class="sc-bar"><div class="sc-fill" id="bc" style="width:0%"></div></div></div>
+    </div>
+
+    <div class="arena" id="arena">
       <div class="fighter">
-        <span class="fighter-name">You</span>
-        <div class="icon-bubble you-bubble" id="p-icon">🤔</div>
+        <span class="fighter-name" id="fn1">You</span>
+        <div class="icon-bubble p1-bubble" id="p-icon">🤔</div>
       </div>
       <div class="vs-text">vs</div>
       <div class="fighter">
-        <span class="fighter-name">CPU</span>
-        <div class="icon-bubble cpu-bubble" id="c-icon">🤖</div>
+        <span class="fighter-name" id="fn2">CPU</span>
+        <div class="icon-bubble p2-bubble" id="c-icon">🤖</div>
       </div>
     </div>
 
@@ -180,7 +198,6 @@
   </div>
 
 </div>
-
 <script>
   const CFG = {
     classic: {
@@ -195,15 +212,20 @@
     }
   };
 
-  let mode = 'classic', target = 3, score = {y:0, c:0, t:0}, over = false;
+  let rules = 'classic', opponent = 'cpu', target = 3;
+  let score = {p1:0, p2:0, t:0}, over = false;
+  let p1pick = null, p2pick = null;
 
-  function selMode(m) {
-    mode = m;
-    document.querySelectorAll('.pill-btn').forEach((b, i) =>
-      b.classList.toggle('active', (i===0 && m==='classic') || (i===1 && m==='rpsls'))
-    );
+  function selRules(r) {
+    rules = r;
+    document.querySelectorAll('.cute-card:nth-child(2) .pill-btn').forEach((b,i) =>
+      b.classList.toggle('active', (i===0&&r==='classic')||(i===1&&r==='rpsls')));
   }
-
+  function selOpponent(o) {
+    opponent = o;
+    document.querySelectorAll('.cute-card:nth-child(3) .pill-btn').forEach((b,i) =>
+      b.classList.toggle('active', (i===0&&o==='cpu')||(i===1&&o==='human')));
+  }
   function selPreset(v, btn) {
     document.querySelectorAll('.t-pill').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -211,103 +233,176 @@
     if (v === 'custom') { cr.style.display = 'flex'; target = parseInt(document.getElementById('cval').value) || 7; }
     else { cr.style.display = 'none'; target = v; }
   }
-
-  function updCustom() {
-    const v = parseInt(document.getElementById('cval').value);
-    if (v >= 1) target = v;
-  }
+  function updCustom() { const v = parseInt(document.getElementById('cval').value); if (v >= 1) target = v; }
 
   function startGame() {
-    score = {y:0, c:0, t:0}; over = false;
+    score = {p1:0, p2:0, t:0}; over = false; p1pick = null; p2pick = null;
     document.getElementById('setup').classList.remove('active');
     document.getElementById('game').classList.add('active');
     document.getElementById('winner-box').style.display = 'none';
+    document.getElementById('pass-box').style.display = 'none';
     document.getElementById('tgt-tag').textContent = 'First to ' + target + ' wins';
-    buildChoices(); buildRules(); resetDisplay(); updateBoard(); setChoices(true);
+    const isHuman = opponent === 'human';
+    document.getElementById('lbl-p1').textContent = isHuman ? 'P1' : 'You';
+    document.getElementById('lbl-p2').textContent = isHuman ? 'P2' : 'CPU';
+    document.getElementById('fn1').textContent = isHuman ? 'Player 1' : 'You';
+    document.getElementById('fn2').textContent = isHuman ? 'Player 2' : 'CPU';
+    document.getElementById('c-icon').textContent = isHuman ? '🤔' : '🤖';
+    buildChoices(); buildRules(); resetDisplay(); updateBoard();
+    if (isHuman) {
+      document.getElementById('choices').style.display = 'none';
+      document.getElementById('arena').style.display = 'none';
+      startPassPlay();
+    } else {
+      document.getElementById('choices').style.display = 'flex';
+      document.getElementById('arena').style.display = 'flex';
+    }
   }
 
   function goSetup() {
     document.getElementById('game').classList.remove('active');
     document.getElementById('setup').classList.add('active');
   }
-
   function playAgain() {
-    score = {y:0, c:0, t:0}; over = false;
+    score = {p1:0, p2:0, t:0}; over = false; p1pick = null; p2pick = null;
     document.getElementById('winner-box').style.display = 'none';
-    resetDisplay(); updateBoard(); setChoices(true);
+    resetDisplay(); updateBoard();
+    if (opponent === 'human') {
+      document.getElementById('pass-box').style.display = 'flex';
+      document.getElementById('arena').style.display = 'none';
+      startPassPlay();
+    } else {
+      document.getElementById('choices').style.display = 'flex';
+      document.getElementById('arena').style.display = 'flex';
+    }
   }
 
   function buildChoices() {
-    document.getElementById('choices').innerHTML = CFG[mode].choices.map(c =>
-      `<button class="choice-btn" onclick="play('${c.k}')">
+    document.getElementById('choices').innerHTML = CFG[rules].choices.map(c =>
+      `<button class="choice-btn" onclick="playCPU('${c.k}')">
         <span class="ce">${c.e}</span><span class="cl">${c.l}</span>
       </button>`
     ).join('');
   }
-
   function buildRules() {
-    document.getElementById('rules').textContent = mode === 'classic'
+    document.getElementById('rules').textContent = rules === 'classic'
       ? 'Rock crushes Scissors · Scissors cuts Paper · Paper covers Rock'
       : 'Rock crushes Scissors & Lizard · Paper covers Rock & disproves Spock · Scissors cuts Paper & decapitates Lizard · Lizard poisons Spock & eats Paper · Spock smashes Scissors & vaporizes Rock';
   }
-
   function resetDisplay() {
     document.getElementById('p-icon').textContent = '🤔';
-    document.getElementById('c-icon').textContent = '🤖';
+    document.getElementById('c-icon').textContent = opponent === 'human' ? '🤔' : '🤖';
     const rb = document.getElementById('r-big');
     rb.textContent = 'Pick your weapon!'; rb.className = 'r-big';
     document.getElementById('r-sub').textContent = '';
   }
-
   function updateBoard() {
-    document.getElementById('sy').textContent = score.y;
-    document.getElementById('sc2').textContent = score.c;
+    document.getElementById('sy').textContent = score.p1;
+    document.getElementById('sc2').textContent = score.p2;
     document.getElementById('st').textContent = score.t;
-    document.getElementById('by').style.width = Math.round(score.y / target * 100) + '%';
-    document.getElementById('bc').style.width = Math.round(score.c / target * 100) + '%';
+    document.getElementById('by').style.width = Math.round(score.p1 / target * 100) + '%';
+    document.getElementById('bc').style.width = Math.round(score.p2 / target * 100) + '%';
     document.getElementById('bt').style.width = Math.round(score.t / target * 100) + '%';
   }
-
   function setChoices(on) {
     document.querySelectorAll('.choice-btn').forEach(b => on ? b.removeAttribute('disabled') : b.setAttribute('disabled', ''));
   }
 
-  function play(pk) {
+  function playCPU(pk) {
     if (over) return;
-    const cfg = CFG[mode], keys = cfg.choices.map(c => c.k);
+    const cfg = CFG[rules], keys = cfg.choices.map(c => c.k);
     const ck = keys[Math.floor(Math.random() * keys.length)];
-    const pe = cfg.choices.find(c => c.k === pk).e;
-    const ce = cfg.choices.find(c => c.k === ck).e;
+    const pe = cfg.choices.find(c => c.k === pk).e, ce = cfg.choices.find(c => c.k === ck).e;
     const pi = document.getElementById('p-icon'), ci = document.getElementById('c-icon');
     pi.textContent = pe; ci.textContent = ce;
     pi.classList.remove('bounce'); ci.classList.remove('bounce');
     void pi.offsetWidth; pi.classList.add('bounce'); ci.classList.add('bounce');
+    resolveRound(pk, ck);
+  }
+
+  function startPassPlay() {
+    p1pick = null; p2pick = null;
+    document.getElementById('pass-box').style.display = 'flex';
+    document.getElementById('r-big').textContent = 'Pick your weapon!';
+    document.getElementById('r-big').className = 'r-big';
+    document.getElementById('r-sub').textContent = '';
+    showPassTurn(1);
+  }
+  function showPassTurn(turn) {
+    const cfg = CFG[rules];
+    document.getElementById('pass-badge').textContent = 'Player ' + turn + "'s turn";
+    document.getElementById('pass-badge').className = 'turn-badge turn-p' + turn;
+    document.getElementById('pass-title').textContent = 'Make your pick, P' + turn + '!';
+    document.getElementById('pass-sub').textContent = "Don't show your opponent — pick secretly!";
+    document.getElementById('hidden-picks').textContent = turn === 2 ? 'P1: ✅' : '';
+    document.getElementById('reveal-btn').style.display = 'none';
+    document.getElementById('pass-choices').innerHTML = cfg.choices.map(c =>
+      `<button class="pass-btn" onclick="humanPick(${turn},'${c.k}')">
+        <span class="ce">${c.e}</span><span class="cl">${c.l}</span>
+      </button>`
+    ).join('');
+  }
+  function humanPick(turn, pk) {
+    if (turn === 1) {
+      p1pick = pk;
+      document.getElementById('pass-choices').innerHTML = '';
+      document.getElementById('pass-title').textContent = 'Got it, P1!';
+      document.getElementById('pass-sub').textContent = 'Now hand the device to Player 2';
+      document.getElementById('hidden-picks').textContent = 'P1: ✅';
+      setTimeout(() => showPassTurn(2), 900);
+    } else {
+      p2pick = pk;
+      document.getElementById('pass-choices').innerHTML = '';
+      document.getElementById('pass-title').textContent = 'Both picks are in!';
+      document.getElementById('pass-sub').textContent = 'Ready to see who won?';
+      document.getElementById('hidden-picks').textContent = 'P1: ✅  P2: ✅';
+      document.getElementById('reveal-btn').style.display = 'inline-block';
+    }
+  }
+  function revealRound() {
+    document.getElementById('pass-box').style.display = 'none';
+    document.getElementById('arena').style.display = 'flex';
+    const cfg = CFG[rules];
+    const pe = cfg.choices.find(c => c.k === p1pick).e, ce = cfg.choices.find(c => c.k === p2pick).e;
+    const pi = document.getElementById('p-icon'), ci = document.getElementById('c-icon');
+    pi.textContent = pe; ci.textContent = ce;
+    pi.classList.remove('bounce'); ci.classList.remove('bounce');
+    void pi.offsetWidth; pi.classList.add('bounce'); ci.classList.add('bounce');
+    resolveRound(p1pick, p2pick);
+  }
+  function resolveRound(pk, ck) {
+    const cfg = CFG[rules];
     const rb = document.getElementById('r-big'), rs = document.getElementById('r-sub');
+    const p1name = opponent === 'human' ? 'P1' : 'You', p2name = opponent === 'human' ? 'P2' : 'CPU';
     let sub;
     if (pk === ck) {
       rb.textContent = "It's a tie!"; rb.className = 'r-big tie'; sub = 'Both chose ' + pk; score.t++;
     } else if (cfg.beats[pk].includes(ck)) {
-      rb.textContent = 'You win! 🎉'; rb.className = 'r-big win';
-      sub = pk + ' ' + (mode==='classic' ? cfg.msg[pk] : (cfg.msg[pk+'-'+ck]||'beats')) + ' ' + ck; score.y++;
+      rb.textContent = p1name + ' wins! 🎉'; rb.className = 'r-big win1';
+      sub = pk + ' ' + (rules==='classic' ? cfg.msg[pk] : (cfg.msg[pk+'-'+ck]||'beats')) + ' ' + ck; score.p1++;
     } else {
-      rb.textContent = 'CPU wins! 🤖'; rb.className = 'r-big lose';
-      sub = ck + ' ' + (mode==='classic' ? cfg.msg[ck] : (cfg.msg[ck+'-'+pk]||'beats')) + ' ' + pk; score.c++;
+      rb.textContent = p2name + ' wins! 🎉'; rb.className = 'r-big win2';
+      sub = ck + ' ' + (rules==='classic' ? cfg.msg[ck] : (cfg.msg[ck+'-'+pk]||'beats')) + ' ' + pk; score.p2++;
     }
     rs.textContent = sub.charAt(0).toUpperCase() + sub.slice(1);
     updateBoard();
-    if (score.y >= target || score.c >= target) { over = true; setChoices(false); setTimeout(showWinner, 700); }
+    if (score.p1 >= target || score.p2 >= target) { over = true; setChoices(false); setTimeout(showWinner, 700); }
+    else if (opponent === 'human') { setTimeout(() => { document.getElementById('arena').style.display = 'none'; startPassPlay(); }, 1800); }
+  }
+  function showWinner() {
+    const isP1 = score.p1 >= target;
+    const p1name = opponent === 'human' ? 'Player 1' : 'You', p2name = opponent === 'human' ? 'Player 2' : 'CPU';
+    document.getElementById('w-emoji').textContent = isP1 ? '🏆' : '🎮';
+    const wt = document.getElementById('w-title');
+    wt.textContent = (isP1 ? p1name : p2name) + ' won the match!';
+    wt.className = 'w-title ' + (isP1 ? 'p1' : 'p2');
+    document.getElementById('w-sub').textContent = 'Final score — ' + (opponent==='human'?'P1':'You') + ' ' + score.p1 + ' · ' + (opponent==='human'?'P2':'CPU') + ' ' + score.p2 + ' · Ties ' + score.t;
+    document.getElementById('winner-box').style.display = 'flex';
+    if (opponent === 'human') document.getElementById('arena').style.display = 'none';
   }
 
-  function showWinner() {
-    const isP = score.y >= target;
-    document.getElementById('w-emoji').textContent = isP ? '🏆' : '😅';
-    const wt = document.getElementById('w-title');
-    wt.textContent = isP ? 'You won the match!' : 'CPU won the match!';
-    wt.className = 'w-title ' + (isP ? 'player' : 'cpu');
-    document.getElementById('w-sub').textContent = 'Final score — You ' + score.y + ' · CPU ' + score.c + ' · Ties ' + score.t;
-    const wb = document.getElementById('winner-box');
-    wb.style.display = 'flex';
-  }
+  selRules('classic');
+  selOpponent('cpu');
 </script>
 </body>
 </html>
